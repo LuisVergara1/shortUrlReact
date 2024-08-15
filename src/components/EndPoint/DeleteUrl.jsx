@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import CustomSnackbar from '../snackbar/snackBar';
-import { deleteUrl } from '../../services/urlService';
+import CustomSnackbar from '../snackbar/snackbar';
+import { deleteUrl } from '../../services/UrlService';
 import Typography from '@mui/material/Typography';
 
 const DeleteUrl = () => {
@@ -18,7 +18,7 @@ const DeleteUrl = () => {
         if (showSnackbar) {
             const timer = setTimeout(() => {
                 setShowSnackbar(false);
-            }, 3000); // 3 segundos
+            }, 2000); // 2 segundos
 
             return () => clearTimeout(timer);
         }
@@ -36,7 +36,7 @@ const DeleteUrl = () => {
 
     const handleDelete = () => {
         if (!shortUrl.trim()) {
-            setSnackbarMessage('Ingrese una URL a Renovar');
+            setSnackbarMessage('Ingrese una URL a Eliminar');
             setSnackbarSeverity('error');
             setShowSnackbar(true);
             setShortUrl('');

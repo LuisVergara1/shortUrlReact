@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import CustomSnackbar from '../snackbar/snackBar';
-import { extendUrl as extendUrlApi } from '../../services/urlService';
+import CustomSnackbar from '../snackbar/snackbar';
+import { extendUrl as extendUrlApi } from '../../services/UrlService';
 import Typography from '@mui/material/Typography';
 
 const ExtendUrl = () => {
@@ -16,7 +16,7 @@ const ExtendUrl = () => {
         if (showSnackbar) {
             const timer = setTimeout(() => {
                 setShowSnackbar(false);
-            }, 3000); // 3 segundos
+            }, 2000); // 2 segundos
 
             return () => clearTimeout(timer);
         }

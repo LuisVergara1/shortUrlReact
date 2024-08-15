@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 
-const apiUrl = 'http://localhost:8080/api/url';
+const apiUrl = 'https://sh.luisvergara.dev/api/url';
 
 export const createUrl = (UrlOriginal) => {
     const urlOriginal = UrlOriginal;
