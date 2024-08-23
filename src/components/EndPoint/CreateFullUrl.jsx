@@ -13,8 +13,8 @@ const CreateFullUrl = () => {
     const [snackbarMessage, setSnackbarMessage] = useState('');
     const [snackbarSeverity, setSnackbarSeverity] = useState('success');
     const [originalUrl, setOriginalUrl] = useState('');
-    const [shortUrl, setShortUrl] = useState(''); // Estado para almacenar la URL corta
-    const [customUrl, setCustomUrl] = useState(''); // Estado para almacenar la URL corta
+    const [shortUrl, setShortUrl] = useState(''); 
+    const [customUrl, setCustomUrl] = useState(''); 
 
 
     useEffect(() => {
@@ -80,9 +80,11 @@ const CreateFullUrl = () => {
                 if (error.response && error.response.status === 400) {
                     setSnackbarMessage(error.response.data);
                     setSnackbarSeverity('error');
+                    setCustomUrl('');
                 } else {
                     setSnackbarMessage('Error al crear la URL');
                     setSnackbarSeverity('error');
+                    setCustomUrl('');
                 }
                 setShowSnackbar(true);
                 setShortUrl(''); // Limpiar la URL corta en caso de error
