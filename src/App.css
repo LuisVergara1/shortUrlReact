@@ -78,12 +78,15 @@
 .examples-header p { margin: 5px 0 0; color: #bfc8db; font-size: .79rem; line-height: 1.45; }
 .examples-header button { background: #222d45; border-color: #ffffff12; white-space: nowrap; }
 .examples:has(.examples-grid[hidden]) .examples-header { margin-bottom: 0; }
-.examples-grid, .action-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.examples-grid, .action-grid { display: grid; gap: 14px; }
+.examples-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); }
+.action-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .examples-grid[hidden] { display: none; }
 
 .tone-pink { --accent: #ff769a; --rgb: 255 118 154; }
 .tone-violet { --accent: #c49cff; --rgb: 196 156 255; }
 .tone-blue { --accent: #77c7ff; --rgb: 119 199 255; }
+.tone-linkedin { --accent: #69b5ff; --rgb: 105 181 255; }
 .tone-red { --accent: #ff8296; --rgb: 255 130 150; }
 .tone-green { --accent: #75e5bb; --rgb: 117 229 187; }
 
@@ -100,10 +103,21 @@
 }
 .example-link:hover { border-color: rgb(var(--rgb) / .65); background: rgb(var(--rgb) / .13); }
 .example-icon { color: var(--accent); font-size: 1.3rem; flex: none; }
+.tone-linkedin .example-icon {
+  display: grid;
+  place-items: center;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 3px;
+  background: #0a66c2;
+  color: #fff;
+  font-size: .85rem;
+  font-weight: 800;
+}
 .example-copy { min-width: 0; flex: 1; }
-.example-copy strong, .example-copy small { display: block; overflow-wrap: anywhere; }
-.example-copy strong { font-size: .8rem; }
-.example-copy small { margin-top: 3px; color: #c4cde0; font-size: .68rem; }
+.example-copy strong, .example-copy small { display: block; }
+.example-copy strong { font-size: .8rem; overflow-wrap: anywhere; }
+.example-copy small { margin-top: 3px; color: #c4cde0; font-size: .68rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .example-arrow { color: #d2dbef; font-size: .8rem; }
 
 .action-grid { margin-top: 19px; }
@@ -153,7 +167,7 @@
 
 @media (max-width: 850px) {
   .site-header-inner, .site-main { width: min(100% - 36px, 1140px); }
-  .action-grid, .examples-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .action-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 520px) {

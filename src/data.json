@@ -1,6 +1,6 @@
 [
-  { "name": "LuisVergara.dev", "code": "luisvergara", "url": "https://luisvergara.dev" },
-  { "name": "Swagger API", "code": "swagger", "url": "https://sh.luisvergara.dev/r/swagger" },
-  { "name": "GitHub Backend", "code": "githubbackend", "url": "https://github.com/LuisVergara1/shortUrl" },
-  { "name": "GitHub Frontend", "code": "githubfrontend", "url": "https://github.com/LuisVergara1/shortUrlReact" }
+  { "name": "LuisVergara.dev", "code": "luisvergara", "url": "https://luisvergara.dev", "tone": "pink", "icon": "↗" },
+  { "name": "LinkedIn", "code": "linkedin", "url": "https://www.linkedin.com/in/luis-vergara01/", "tone": "linkedin", "icon": "in" },
+  { "name": "GitHub Backend", "code": "githubbackend", "url": "https://github.com/LuisVergara1/shortUrl", "tone": "blue", "icon": "▤" },
+  { "name": "GitHub Frontend", "code": "githubfrontend", "url": "https://github.com/LuisVergara1/shortUrlReact", "tone": "violet", "icon": "▣" }
 ]

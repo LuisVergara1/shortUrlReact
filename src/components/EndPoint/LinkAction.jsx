@@ -48,6 +48,7 @@ export default function LinkAction({ action, initialLink = '', duration, onClose
       } else {
         const operation = action === 'extend' ? extendUrl : deleteUrl;
         const { data } = await operation(code, key || savedKey);
+        if (action === 'delete') setUrl('');
         setResult({ message: data });
         onSuccess?.();
       }
