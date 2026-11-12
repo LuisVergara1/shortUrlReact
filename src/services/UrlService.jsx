@@ -28,8 +28,13 @@ export function storedManagementKey(code) {
 }
 
 export async function createLink({ urlOriginal, shortUrl, alias, managementKey }) {
+  const input = urlOriginal.trim();
+  const hasScheme = /^[a-z][a-z\d+.-]*:(?!\d+(?:[/?#]|$))/i.test(input);
+  const destination = !input || hasScheme
+    ? input
+    : input.startsWith('//') ? `https:${input}` : `https://${input}`;
   const response = await api.post(shortUrl ? '/createfull' : '/create', {
-    urlOriginal, shortUrl, alias, managementKey,
+    urlOriginal: destination, shortUrl, alias, managementKey,
   });
   const key = response.headers['x-management-key'];
   let keySaved = false;

@@ -40,7 +40,7 @@ export default function LinkAction({ action, initialLink = '', duration, onClose
     try {
       if (creating) {
         setResult(await createLink({
-          urlOriginal: url.trim(),
+          urlOriginal: url,
           shortUrl: action === 'custom' ? shortUrl.trim() : undefined,
           alias: alias.trim() || undefined,
           managementKey: alias.trim() ? key : undefined,
@@ -77,7 +77,8 @@ export default function LinkAction({ action, initialLink = '', duration, onClose
           <Stack spacing={2}>
             {creating && duration && <Typography variant="body2">Vigencia inicial de {duration}.</Typography>}
             <TextField autoFocus required label={creating ? 'URL original' : 'URL corta o código'}
-              type={creating ? 'url' : 'text'} value={url} onChange={(event) => setUrl(event.target.value)} />
+              inputProps={creating ? { inputMode: 'url' } : undefined}
+              value={url} onChange={(event) => setUrl(event.target.value)} />
             {action === 'custom' && (
               <TextField required label="Código personalizado" value={shortUrl}
                 inputProps={{ pattern: '[a-zA-Z0-9]{1,10}', maxLength: 10 }}
