@@ -1,46 +1,16 @@
-import React from 'react';
-import Modal from '@mui/material/Modal';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import PropTypes from 'prop-types';
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Typography } from '@mui/material';
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-  textAlign: 'center',
-};
-
-const ErrorMobal = ({ onClose }) => {
+export default function ErrorMobal({ onClose }) {
   return (
-    <Modal
-      open={true}
-      onClose={onClose}
-      aria-labelledby="modal-title"
-      aria-describedby="modal-description"
-    >
-      <Box sx={style}>
-        <Typography variant="h4" gutterBottom>
-          Error
-        </Typography>
-        <Typography variant="body2" color="textSecondary" gutterBottom>
-          La URL no se encuentra Disponible <br/>
-          Verificar la URL ingresada <br/>
-          o Renueva la URL
-        </Typography>
-        <button onClick={onClose} style={{ marginTop: '20px' }}>Ir a Inicio</button>
-      </Box>
-    </Modal>
+    <Dialog open onClose={onClose} fullWidth maxWidth="xs" aria-labelledby="expired-title">
+      <DialogTitle id="expired-title">Este enlace ya no está disponible</DialogTitle>
+      <DialogContent dividers>
+        <Typography color="text.secondary">Puede que el enlace haya vencido o que la dirección esté incompleta. Revisa la URL o, si tú creaste el enlace, vuelve al inicio para renovarlo.</Typography>
+      </DialogContent>
+      <DialogActions><Button onClick={onClose}>Volver al inicio</Button></DialogActions>
+    </Dialog>
   );
-};
+}
 
-export default ErrorMobal;
+ErrorMobal.propTypes = { onClose: PropTypes.func.isRequired };
